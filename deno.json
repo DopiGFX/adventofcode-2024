@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "dev-1": "deno run --watch src/aoc-1.ts"
+  },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@1"
+  }
+}
