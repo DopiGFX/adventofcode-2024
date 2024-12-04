@@ -1,6 +1,7 @@
 //* Getting the input from https://adventofcode.com/2024/day/2/input
 const input = await Deno.readTextFile("input/aoc-2.txt");
 
+//* Defining useful functions
 function isSortedWithinLimit(report: number[], sort: -1 | 1): boolean {
   let i = 1;
   while (i < report.length) {
@@ -16,10 +17,15 @@ function isSortedWithinLimit(report: number[], sort: -1 | 1): boolean {
   return true;
 }
 
+//* Actual code
+
+//? Splitting and parsing input
 const reports = input.split("\n").map(report => report.split(" ").map(level => Number.parseInt(level)));
 
 let result: number = 0;
 let toleratedCount: number = 0;
+
+//? Validating reports and counting the results
 reports.forEach(report => {
   if (isSortedWithinLimit(report, 1)) {
     result++;
@@ -37,5 +43,6 @@ reports.forEach(report => {
   }
 });
 
-console.log("Solution Part 1: ", result)
-console.log("Solution Part 2: ", result + toleratedCount)
+console.log("Solution Part 1: ", result);
+
+console.log("Solution Part 2: ", result + toleratedCount);
